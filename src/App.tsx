@@ -1,32 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { createStyles, makeStyles } from "@material-ui/core/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import NamedIcon from "./components/NamedIcon"
+import { Stars, Work, School, Code, Info } from "@material-ui/icons"
+import { Grid } from "@material-ui/core"
 
-function App() {
-  return (
-    <div className="App">
-      {/* Roboto font */}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      
-      {/* Icons */}
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+const useStyles = makeStyles(() =>
+    createStyles({
+        root: {},
+    }),
+)
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const cls = useStyles()
+
+    return (
+        <Grid className={cls.root}>
+            <CssBaseline />
+            {/* Roboto font */}
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            />
+            <Grid container direction="column">
+                <NamedIcon icon={Stars}>Key skills</NamedIcon>
+                <NamedIcon icon={Work}>Work history</NamedIcon>
+                <NamedIcon icon={School}>Education</NamedIcon>
+                <NamedIcon icon={Code}>Projects</NamedIcon>
+                <NamedIcon icon={Info}>Additional info</NamedIcon>
+            </Grid>
+        </Grid>
+    )
 }
-
-export default App;
