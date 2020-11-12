@@ -9,11 +9,15 @@ export type NamedIconProps = {
     children: string
 }
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
             height: "2rem",
         },
+        icon: {
+            margin: theme.spacing(0.5),
+        },
+        text: {},
     }),
 )
 
@@ -28,8 +32,10 @@ export default function NamedIcon(props: NamedIconProps) {
             alignItems="center"
             className={cls.root}
         >
-            <Icon />
-            <Typography variant="body1">{props.children}</Typography>
+            <Icon className={cls.icon} />
+            <Typography variant="body1" className={cls.icon}>
+                {props.children}
+            </Typography>
         </Grid>
     )
 }
